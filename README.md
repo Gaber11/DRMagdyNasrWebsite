@@ -28,8 +28,6 @@ Location & Contact
 Smart Chat Assistant
 🚀 Live Preview
 
-Add your GitHub Pages link here after deployment.
-
 👨‍💻 Author
 
 Gaber Ezzat
