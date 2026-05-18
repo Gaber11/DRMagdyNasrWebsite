@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>د. مجدي نصر | عيادة طب الأسنان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.4/dist/html5-qrcode.min.js"></script>
+<style>
+:root{
+  --primary:#0AA1B6;
+  --primary-dark:#067A8C;
+  --accent:#5CCFE2;
+  --light:#E6F8FB;
+  --dark:#0F2940;
+  --text:#334155;
+  --muted:#64748B;
+  --bg:#F7FBFC;
+  --white:#ffffff;
+  --shadow:0 10px 40px rgba(10,161,182,0.12);
+  --shadow-lg:0 20px 60px rgba(10,161,182,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Tajawal','Cairo',sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* Navbar */
+.navbar{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  padding:15px 0;
+  transition:all .3s;
+  box-shadow:0 2px 20px rgba(0,0,0,0.05);
+}
+.nav-wrapper{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-size:24px;font-weight:900;color:var(--primary);display:flex;align-items:center;gap:10px;}
+.logo i{font-size:28px;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{font-weight:500;transition:.3s;position:relative;}
+.nav-links a:hover{color:var(--primary);}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:2px;background:var(--primary);transition:.3s;}
+.nav-links a:hover::after{width:100%;}
+.btn-nav{background:var(--primary);color:#fff !important;padding:10px 25px;border-radius:50px;transition:.3s;}
+.btn-nav:hover{background:var(--primary-dark);transform:translateY(-2px);}
+.menu-toggle{display:none;font-size:24px;background:none;border:none;color:var(--dark);cursor:pointer;}
+
+/* Hero */
+.hero{
+  padding:140px 0 80px;
+  background:linear-gradient(135deg,#E6F8FB 0%,#ffffff 60%,#F0FBFD 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;left:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(92,207,226,0.3),transparent 70%);
+  z-index:0;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-150px;right:-150px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(10,161,182,0.15),transparent 70%);
+  z-index:0;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;position:relative;z-index:1;
+}
+.hero-content .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(10,161,182,0.1);color:var(--primary);
+  padding:8px 18px;border-radius:50px;font-size:14px;font-weight:600;margin-bottom:20px;
+  animation:fadeUp .8s ease;
+}
+.hero h1{
+  font-family:'Cairo',sans-serif;
+  font-size:56px;font-weight:900;color:var(--dark);
+  line-height:1.2;margin-bottom:15px;
+  animation:fadeUp 1s ease;
+}
+.hero h1 span{color:var(--primary);}
+.hero .specialty{
+  font-size:20px;color:var(--primary);font-weight:700;margin-bottom:20px;line-height:1.5;
+  animation:fadeUp 1.2s ease;
+}
+.hero p{
+  font-size:18px;color:var(--muted);margin-bottom:35px;max-width:520px;
+  animation:fadeUp 1.4s ease;
+}
+.hero-buttons{display:flex;gap:15px;flex-wrap:wrap;animation:fadeUp 1.6s ease;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:16px 35px;border-radius:50px;font-weight:700;font-size:16px;
+  display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 10px 30px rgba(10,161,182,0.4);
+  transition:.3s;border:none;cursor:pointer;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(10,161,182,0.5);}
+.btn-secondary{
+  background:#fff;color:var(--primary);padding:16px 35px;border-radius:50px;font-weight:700;font-size:16px;
+  display:inline-flex;align-items:center;gap:10px;border:2px solid var(--primary);transition:.3s;
+}
+.btn-secondary:hover{background:var(--primary);color:#fff;}
+
+.hero-image{position:relative;animation:fadeIn 1.5s ease;display:flex;justify-content:center;}
+.doctor-frame{
+  position:relative;width:100%;max-width:450px;aspect-ratio:1/1.1;
+  border-radius:50% 50% 30px 30px / 45% 45% 30px 30px;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--accent),var(--primary));
+  box-shadow:var(--shadow-lg);
+  z-index:2;
+}
+.doctor-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  display:block;
+}
+.doctor-frame::after{
+  content:'';position:absolute;inset:0;
+  border:6px solid rgba(255,255,255,0.5);
+  border-radius:inherit;pointer-events:none;
+}
+.hero-image::before{
+  content:'';position:absolute;top:20px;right:-15px;
+  width:90%;height:95%;
+  border-radius:50% 50% 30px 30px / 45% 45% 30px 30px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  z-index:1;opacity:.25;
+}
+.deco-dots{
+  position:absolute;width:120px;height:120px;
+  background-image:radial-gradient(var(--primary) 2px,transparent 2px);
+  background-size:18px 18px;opacity:.3;z-index:0;
+}
+.deco-dots.dd-1{top:-30px;right:-30px;}
+.deco-dots.dd-2{bottom:-20px;left:-30px;}
+
+.floating-card{
+  position:absolute;background:#fff;padding:16px 20px;border-radius:18px;
+  box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;z-index:3;
+  animation:float 3s ease-in-out infinite;
+}
+.floating-card i{font-size:26px;color:var(--primary);}
+.floating-card .info strong{display:block;color:var(--dark);font-size:15px;}
+.floating-card .info span{color:var(--muted);font-size:12px;}
+.fc-1{top:30px;left:-20px;animation-delay:0s;}
+.fc-2{bottom:60px;right:-20px;animation-delay:1.5s;}
+
+/* Contact Bar */
+.contact-bar{padding:50px 0;background:#fff;}
+.contact-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.contact-card{
+  background:linear-gradient(135deg,#fff,#F7FBFC);
+  border:1px solid rgba(10,161,182,0.1);
+  padding:25px;border-radius:20px;
+  display:flex;align-items:center;gap:18px;
+  transition:.3s;cursor:pointer;
+}
+.contact-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--primary);}
+.contact-icon{
+  width:55px;height:55px;border-radius:15px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:22px;flex-shrink:0;
+}
+.contact-info strong{display:block;color:var(--dark);font-size:14px;margin-bottom:3px;}
+.contact-info a{color:var(--muted);font-size:15px;font-weight:500;}
+
+/* Section base */
+section{padding:90px 0;}
+.section-head{text-align:center;max-width:650px;margin:0 auto 60px;}
+.section-tag{
+  display:inline-block;color:var(--primary);font-weight:700;font-size:14px;
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;
+}
+.section-head h2{
+  font-family:'Cairo',sans-serif;
+  font-size:42px;font-weight:900;color:var(--dark);margin-bottom:15px;
+}
+.section-head p{color:var(--muted);font-size:17px;}
+
+/* About */
+.about{background:#fff;}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;}
+.about-image{position:relative;display:flex;justify-content:center;}
+.about-photo-wrap{
+  position:relative;width:100%;max-width:420px;aspect-ratio:1/1.15;
+  border-radius:25px;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:linear-gradient(135deg,var(--light),#fff);
+}
+.about-photo-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+}
+.about-image::before{
+  content:'';position:absolute;bottom:-15px;right:-15px;
+  width:100%;height:100%;max-width:420px;
+  border-radius:25px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  z-index:-1;opacity:.25;
+}
+.about-badge{
+  position:absolute;bottom:-20px;left:20px;
+  background:#fff;padding:20px 25px;border-radius:18px;
+  box-shadow:var(--shadow);text-align:center;z-index:2;
+}
+.about-badge strong{display:block;font-size:36px;color:var(--primary);font-weight:900;}
+.about-badge span{color:var(--muted);font-size:14px;}
+.about-content h2{
+  font-family:'Cairo',sans-serif;font-size:38px;font-weight:900;
+  color:var(--dark);margin-bottom:15px;
+}
+.about-specialty{
+  background:rgba(10,161,182,0.08);color:var(--primary);font-weight:700;
+  padding:12px 20px;border-radius:14px;margin-bottom:20px;display:inline-block;
+  font-size:15px;line-height:1.6;border-right:4px solid var(--primary);
+}
+.about-content p{margin-bottom:18px;font-size:16px;}
+.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 25px;}
+.about-tag{
+  background:#fff;border:1px solid rgba(10,161,182,0.2);
+  color:var(--primary);font-weight:600;font-size:14px;
+  padding:8px 16px;border-radius:50px;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:.3s;
+}
+.about-tag:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
+.about-tag i{font-size:12px;}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px;}
+.feature{display:flex;align-items:center;gap:12px;}
+.feature i{
+  width:38px;height:38px;border-radius:10px;
+  background:rgba(10,161,182,0.1);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.feature span{font-weight:600;color:var(--dark);}
+
+/* Services */
+.services{background:var(--bg);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.service-card{
+  background:#fff;padding:35px 30px;border-radius:22px;
+  text-align:center;transition:.4s;border:1px solid transparent;
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0);transition:.4s;transform-origin:right;
+}
+.service-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);}
+.service-card:hover::before{transform:scaleX(1);transform-origin:left;}
+.service-icon{
+  width:80px;height:80px;margin:0 auto 20px;
+  background:linear-gradient(135deg,rgba(10,161,182,0.1),rgba(92,207,226,0.2));
+  border-radius:25px;display:flex;align-items:center;justify-content:center;
+  color:var(--primary);font-size:34px;transition:.4s;
+}
+.service-card:hover .service-icon{
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;
+  transform:rotate(-5deg) scale(1.05);
+}
+.service-card h3{font-family:'Cairo',sans-serif;font-size:22px;color:var(--dark);margin-bottom:12px;}
+.service-card p{color:var(--muted);font-size:15px;}
+
+/* Testimonials */
+.testimonials{background:#fff;}
+.rating-summary{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;border-radius:25px;padding:35px;
+  display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+  margin-bottom:50px;box-shadow:var(--shadow-lg);
+}
+.rating-big{text-align:center;}
+.rating-big strong{font-size:60px;font-weight:900;line-height:1;display:block;font-family:'Cairo',sans-serif;}
+.rating-big .stars-big{color:#FFC107;font-size:20px;margin-top:8px;letter-spacing:2px;}
+.rating-text h3{font-family:'Cairo',sans-serif;font-size:24px;margin-bottom:8px;}
+.rating-text p{opacity:.9;font-size:15px;}
+.rating-stat{text-align:center;background:rgba(255,255,255,0.15);padding:18px 28px;border-radius:18px;}
+.rating-stat strong{display:block;font-size:32px;font-weight:900;font-family:'Cairo',sans-serif;}
+.rating-stat span{font-size:13px;opacity:.9;}
+
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.testi-card{
+  background:linear-gradient(135deg,#fff,#F7FBFC);
+  padding:30px;border-radius:22px;border:1px solid rgba(10,161,182,0.1);
+  transition:.3s;position:relative;display:flex;flex-direction:column;
+}
+.testi-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+.testi-card .quote-icon{
+  position:absolute;top:20px;left:25px;font-size:36px;color:rgba(10,161,182,0.12);
+}
+.stars{color:#FFC107;margin-bottom:15px;font-size:16px;letter-spacing:2px;}
+.testi-text{font-size:16px;color:var(--text);margin-bottom:20px;font-style:italic;flex-grow:1;}
+.testi-author{
+  display:flex;align-items:center;gap:13px;
+  padding-top:18px;border-top:1px solid rgba(10,161,182,0.1);
+}
+.author-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:900;font-size:18px;font-family:'Cairo',sans-serif;flex-shrink:0;
+}
+.testi-author .info strong{display:block;color:var(--dark);font-size:15px;}
+.testi-author .info span{color:var(--muted);font-size:12px;}
+
+/* Working Hours */
+/* Gallery */
+.gallery{background:#fff;}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+.gallery-item{
+  position:relative;border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);transition:.4s;cursor:pointer;
+  aspect-ratio:1/1;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+}
+.gallery-item:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:.4s;
+}
+.gallery-item:hover img{transform:scale(1.1);}
+.gallery-overlay{
+  position:absolute;inset:0;background:rgba(15,41,64,0.7);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:.3s;
+}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-overlay i{font-size:40px;color:#fff;}
+.gallery-large{grid-column:span 2;grid-row:span 2;}
+@media (max-width:992px){
+  .gallery-large{grid-column:span 1;grid-row:span 1;}
+}
+
+.hours{background:var(--bg);}
+.hours-wrapper{
+  background:linear-gradient(135deg,#E6F8FB 0%,#ffffff 100%);
+  border-radius:30px;padding:50px;
+  display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.hours-wrapper::before{
+  content:'';position:absolute;top:-80px;left:-80px;
+  width:250px;height:250px;border-radius:50%;
+  background:radial-gradient(circle,rgba(10,161,182,0.15),transparent 70%);
+}
+.hours-intro{position:relative;z-index:1;}
+.hours-intro .section-tag{margin-bottom:12px;}
+.hours-intro h2{
+  font-family:'Cairo',sans-serif;font-size:36px;font-weight:900;
+  color:var(--dark);margin-bottom:15px;line-height:1.3;
+}
+.hours-intro p{color:var(--muted);font-size:16px;margin-bottom:25px;}
+.hours-icon-big{
+  width:80px;height:80px;border-radius:20px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:36px;margin-bottom:25px;
+  box-shadow:0 15px 35px rgba(10,161,182,0.35);
+}
+.hours-list{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;}
+.hours-item{
+  background:#fff;border-radius:14px;padding:18px 22px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-right:4px solid var(--primary);transition:.3s;
+  box-shadow:0 5px 20px rgba(10,161,182,0.06);
+}
+.hours-item:hover{transform:translateX(-5px);box-shadow:var(--shadow);}
+.hours-item.closed{border-right-color:#E53E3E;opacity:.85;}
+.hours-item.closed .time{color:#E53E3E;}
+.day{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--dark);font-size:16px;}
+.day i{color:var(--primary);font-size:18px;}
+.hours-item.closed .day i{color:#E53E3E;}
+.time{color:var(--primary);font-weight:700;font-size:15px;background:rgba(10,161,182,0.08);padding:6px 14px;border-radius:30px;}
+.hours-item.closed .time{background:rgba(229,62,62,0.08);}
+
+/* Location */
+.location{background:#fff;}
+.loc-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:stretch;}
+.loc-info{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:45px;border-radius:25px;display:flex;flex-direction:column;justify-content:center;
+}
+.loc-info h3{font-family:'Cairo',sans-serif;font-size:30px;margin-bottom:20px;}
+.loc-info p{margin-bottom:25px;opacity:.95;font-size:17px;}
+.loc-detail{display:flex;align-items:flex-start;gap:15px;margin-bottom:18px;}
+.loc-detail i{
+  width:42px;height:42px;border-radius:12px;
+  background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.loc-detail strong{display:block;margin-bottom:3px;font-size:15px;}
+.loc-detail span{opacity:.9;font-size:14px;}
+.btn-directions{
+  background:#fff;color:var(--primary);padding:14px 30px;border-radius:50px;
+  display:inline-flex;align-items:center;gap:10px;font-weight:700;
+  margin-top:15px;align-self:flex-start;transition:.3s;
+}
+.btn-directions:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+.loc-map{border-radius:25px;overflow:hidden;box-shadow:var(--shadow);min-height:400px;}
+.loc-map iframe{width:100%;height:100%;border:0;display:block;}
+
+/* Footer */
+footer{background:var(--dark);color:#fff;padding:70px 0 25px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+.footer-col h4{font-family:'Cairo',sans-serif;font-size:18px;margin-bottom:20px;color:#fff;}
+.footer-col p{color:rgba(255,255,255,0.7);font-size:15px;margin-bottom:20px;}
+.footer-logo{font-size:26px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.footer-logo i{color:var(--accent);}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col ul a{color:rgba(255,255,255,0.7);transition:.3s;font-size:15px;}
+.footer-col ul a:hover{color:var(--accent);padding-right:5px;}
+.social-links{display:flex;gap:12px;margin-top:15px;}
+.social-links a{
+  width:42px;height:42px;border-radius:12px;
+  background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:.3s;
+}
+.social-links a:hover{background:var(--primary);transform:translateY(-3px);}
+.footer-contact li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.7);font-size:14px;}
+.footer-contact li i{color:var(--accent);}
+.copyright{text-align:center;padding-top:25px;border-top:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);font-size:14px;}
+.copyright a{color:var(--accent);}
+
+/* WhatsApp Float */
+.whatsapp-float{
+  position:fixed;bottom:25px;left:25px;
+  width:60px;height:60px;background:#25D366;color:#fff;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:30px;box-shadow:0 10px 30px rgba(37,211,102,0.5);
+  z-index:999;transition:.3s;animation:pulse 2s infinite;
+}
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* AI Chat Assistant */
+.chat-widget{
+  position:fixed;bottom:100px;right:25px;
+  z-index:998;display:flex;flex-direction:column;
+  gap:15px;
+}
+.chat-toggle{
+  width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;border:none;border-radius:50%;font-size:24px;cursor:pointer;
+  box-shadow:0 10px 30px rgba(10,161,182,0.4);transition:.3s;
+  display:flex;align-items:center;justify-content:center;
+}
+.chat-toggle:hover{transform:scale(1.1);box-shadow:0 15px 40px rgba(10,161,182,0.6);}
+.chat-window{
+  position:fixed;bottom:100px;right:25px;width:380px;height:600px;
+  background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  display:flex;flex-direction:column;opacity:0;transform:scale(0.8);
+  transition:.3s;pointer-events:none;z-index:999;
+}
+.chat-window.active{opacity:1;transform:scale(1);pointer-events:all;}
+.chat-header{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:20px;border-radius:20px 20px 0 0;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.chat-header h3{font-family:'Cairo',sans-serif;font-size:18px;margin:0;}
+.chat-header small{opacity:.8;font-size:12px;display:block;}
+.chat-close{
+  background:none;border:none;color:#fff;font-size:20px;cursor:pointer;
+  transition:.3s;
+}
+.chat-close:hover{transform:rotate(90deg);}
+.chat-messages{
+  flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;
+  gap:12px;
+}
+.message{
+  display:flex;align-items:flex-end;gap:8px;margin-bottom:12px;
+  animation:slideIn .3s ease;
+}
+.message.user{justify-content:flex-end;}
+.message.bot .avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:16px;flex-shrink:0;
+}
+.message-text{
+  max-width:280px;padding:12px 16px;border-radius:16px;
+  font-size:14px;line-height:1.4;word-wrap:break-word;
+}
+.message.bot .message-text{
+  background:var(--light);color:var(--text);border-radius:16px 16px 16px 0;
+}
+.message.user .message-text{
+  background:var(--primary);color:#fff;border-radius:16px 16px 0 16px;
+}
+.chat-input-area{
+  padding:15px;border-top:1px solid rgba(10,161,182,0.1);
+  display:flex;gap:10px;
+}
+.chat-input{
+  flex:1;border:1px solid rgba(10,161,182,0.2);border-radius:25px;
+  padding:10px 16px;font-size:14px;font-family:'Tajawal',sans-serif;
+  outline:none;transition:.3s;
+}
+.chat-input:focus{border-color:var(--primary);background:var(--light);}
+.chat-send{
+  background:var(--primary);color:#fff;border:none;border-radius:50%;
+  width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:18px;transition:.3s;
+}
+.chat-send:hover{background:var(--primary-dark);transform:scale(1.05);}
+@keyframes slideIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@media (max-width:640px){
+  .chat-window{width:calc(100vw - 40px);right:20px;left:20px;height:500px;}
+  .message-text{max-width:200px;}
+}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+@keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,0.5);}50%{box-shadow:0 10px 30px rgba(37,211,102,0.8),0 0 0 15px rgba(37,211,102,0);}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* Responsive */
+@media (max-width:992px){
+  .hero-grid,.about-grid,.loc-grid,.hours-wrapper{grid-template-columns:1fr;gap:40px;}
+  .hero h1{font-size:42px;}
+  .services-grid,.testi-grid,.contact-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .section-head h2,.about-content h2,.hours-intro h2{font-size:32px;}
+  .hours-wrapper{padding:40px 30px;}
+  .rating-summary{grid-template-columns:1fr;text-align:center;gap:20px;}
+  .doctor-frame{max-width:380px;}
+}
+@media (max-width:640px){
+  .nav-links{
+    display:none;position:absolute;top:70px;right:0;left:0;
+    background:#fff;flex-direction:column;padding:25px;gap:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  }
+  .nav-links.show{display:flex;}
+  .menu-toggle{display:block;}
+  .hero{padding:120px 0 60px;}
+  .hero h1{font-size:34px;}
+  .hero .specialty{font-size:17px;}
+  .services-grid,.testi-grid,.contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:30px;}
+  .section-head h2,.about-content h2,.hours-intro h2{font-size:26px;}
+  .floating-card{padding:12px 16px;}
+  .floating-card i{font-size:22px;}
+  .floating-card .info strong{font-size:13px;}
+  .floating-card .info span{font-size:11px;}
+  .fc-1{top:10px;left:-10px;}
+  .fc-2{bottom:30px;right:-10px;}
+  .doctor-frame{max-width:300px;}
+  .loc-info,.hours-wrapper,.rating-summary{padding:30px 25px;}
+  section{padding:60px 0;}
+  .hero-buttons{flex-direction:column;}
+  .hero-buttons a{justify-content:center;}
+  .hours-item{padding:14px 18px;flex-direction:column;align-items:flex-start;gap:8px;}
+  .day{font-size:15px;}
+  .rating-big strong{font-size:48px;}
+}
+
+/* Booking System */
+.booking-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;
+  z-index:2000;overflow:auto;padding:20px;
+}
+.booking-modal.active{display:flex;}
+.booking-content{
+  background:#fff;border-radius:30px;padding:40px;max-width:600px;width:100%;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:slideUp .4s ease;
+}
+.booking-header{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;
+  border-bottom:2px solid var(--light);padding-bottom:20px;
+}
+.booking-header h2{font-family:'Cairo',sans-serif;font-size:28px;color:var(--dark);margin:0;}
+.booking-close{background:none;border:none;font-size:24px;color:var(--muted);cursor:pointer;transition:.3s;}
+.booking-close:hover{color:var(--primary);transform:rotate(90deg);}
+.form-group{margin-bottom:25px;}
+.form-group label{
+  display:block;font-weight:600;color:var(--dark);margin-bottom:8px;font-size:15px;
+}
+.form-group input,.form-group select{
+  width:100%;padding:14px 16px;border:1px solid rgba(10,161,182,0.2);
+  border-radius:12px;font-size:15px;font-family:'Tajawal',sans-serif;
+  transition:.3s;outline:none;
+}
+.form-group input:focus,.form-group select:focus{
+  border-color:var(--primary);background:var(--light);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:640px){.form-row{grid-template-columns:1fr;}}
+.submit-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:16px 40px;border:none;border-radius:50px;
+  font-weight:700;font-size:16px;cursor:pointer;width:100%;
+  box-shadow:0 10px 30px rgba(10,161,182,0.4);transition:.3s;
+}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(10,161,182,0.5);}
+
+/* QR Code Modal */
+.qr-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;
+  z-index:2000;padding:20px;
+}
+.qr-modal.active{display:flex;}
+.qr-content{
+  background:#fff;border-radius:30px;padding:40px;text-align:center;
+  max-width:600px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  animation:slideUp .4s ease;
+}
+.qr-header{
+  font-family:'Cairo',sans-serif;font-size:28px;color:var(--dark);
+  margin-bottom:10px;font-weight:900;
+}
+.qr-subtitle{color:var(--muted);font-size:15px;margin-bottom:30px;}
+#qrCodeContainer{
+  background:#fff;padding:20px;border-radius:20px;
+  margin:30px auto;display:inline-block;box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.booking-details{
+  background:var(--light);padding:20px;border-radius:15px;
+  margin:20px 0;text-align:left;
+}
+.detail-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid rgba(10,161,182,0.1);
+}
+.detail-item:last-child{border-bottom:none;}
+.detail-item strong{color:var(--dark);}
+.detail-item span{color:var(--primary);font-weight:700;}
+.qr-actions{display:flex;gap:15px;margin-top:25px;}
+.qr-btn{
+  flex:1;padding:14px 20px;border:none;border-radius:12px;
+  font-weight:700;cursor:pointer;transition:.3s;font-size:15px;
+}
+.qr-btn-print{background:var(--primary);color:#fff;}
+.qr-btn-print:hover{background:var(--primary-dark);transform:translateY(-2px);}
+.qr-btn-close{background:var(--light);color:var(--primary);border:2px solid var(--primary);}
+.qr-btn-close:hover{background:var(--primary);color:#fff;}
+
+/* Reader */
+.reader-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;
+  z-index:2000;padding:20px;flex-direction:column;
+}
+.reader-modal.active{display:flex;}
+.reader-content{width:100%;max-width:500px;}
+.reader-header{
+  color:#fff;font-size:24px;font-weight:900;text-align:center;
+  margin-bottom:30px;
+}
+#qr-reader{width:100%;border-radius:20px;overflow:hidden;}
+.reader-actions{display:flex;gap:15px;margin-top:25px;justify-content:center;}
+.reader-btn{
+  padding:12px 30px;border:none;border-radius:12px;
+  font-weight:700;cursor:pointer;transition:.3s;
+}
+.reader-btn-close{background:var(--primary);color:#fff;}
+.reader-btn-close:hover{background:var(--primary-dark);}
+@keyframes slideUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+
+/* Success Message */
+.success-message{
+  position:fixed;top:20px;right:20px;background:#10B981;color:#fff;
+  padding:16px 24px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  z-index:3000;animation:slideIn .3s ease;display:none;
+}
+.success-message.show{display:block;}
+@keyframes slideIn{from{opacity:0;transform:translateX(100px);}to{opacity:1;transform:translateX(0);}}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-wrapper">
+    <a href="#" class="logo"><i class="fa-solid fa-tooth"></i> د. مجدي نصر</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#about">عن الدكتور</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#gallery">صور العيادة</a></li>
+      <li><a href="#testimonials">آراء المرضى</a></li>
+      <li><a href="#hours">أوقات العمل</a></li>
+      <li><a href="#location">الموقع</a></li>
+      <li><a href="https://wa.me/966557664577" class="btn-nav">احجز الآن</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('show')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="badge"><i class="fa-solid fa-shield-heart"></i> رعاية متكاملة لابتسامتك</span>
+      <h1>ابتسامة مشرقة <span>تبدأ من هنا</span></h1>
+      <div class="specialty">د. مجدي نصر - طب الأسنان العام، تجميل وتركيبات الأسنان</div>
+      <p>دكتور أسنان متخصص في علاج وتجميل الأسنان للبالغين وكبار السن، نقدم خدمات طبية شاملة بأحدث التقنيات في بيئة عصرية مريحة.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/966557664577" class="btn-primary"><i class="fa-regular fa-calendar-check"></i> احجز موعد الآن</a>
+        <a href="tel:+966557664577" class="btn-secondary"><i class="fa-solid fa-phone"></i> اتصل بنا</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <span class="deco-dots dd-1"></span>
+      <span class="deco-dots dd-2"></span>
+      <div class="doctor-frame">
+        <img src="doctor.jpg" alt="د. مجدي نصر - استشاري طب الأسنان"
+             onerror="this.onerror=null;this.src='https://i.pinimg.com/736x/2a/87/87/2a87873c57c152a6c78e1e32d2926e0a.jpg?w=600&q=80';">
+      </div>
+      <div class="floating-card fc-1">
+        <i class="fa-solid fa-user-doctor"></i>
+        <div class="info"><strong>+5 سنوات</strong><span>خبرة مهنية</span></div>
+      </div>
+      <div class="floating-card fc-2">
+        <i class="fa-solid fa-star"></i>
+        <div class="info"><strong>4.5 / 5</strong><span>تقييم المرضى</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Bar -->
+<section class="contact-bar">
+  <div class="container">
+    <div class="contact-grid">
+      <a href="tel:+966557664577" class="contact-card">
+        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+        <div class="contact-info"><strong>اتصل بنا</strong><span>+966 55 766 4577</span></div>
+      </a>
+      <a href="https://wa.me/966557664577" class="contact-card">
+        <div class="contact-icon" style="background:linear-gradient(135deg,#25D366,#128C7E);"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="contact-info"><strong>واتساب</strong><span>تواصل مباشر فوري</span></div>
+      </a>
+      <a href="mailto:info@dr-magdy.com" class="contact-card">
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div class="contact-info"><strong>البريد الإلكتروني</strong><span>info@dr-magdy.com</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about reveal" id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <div class="about-photo-wrap">
+        <img src="doctor.jpg" alt="د. مجدي نصر"
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80';">
+      </div>
+      <div class="about-badge">
+        <strong>5+</strong>
+        <span>سنوات من الخبرة</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <span class="section-tag">عن الدكتور</span>
+      <h2>دكتور مجدي نصر</h2>
+      <div class="about-specialty">
+        طب أسنان عام • أسنان بالغين • حشو وعلاج العصب • تجميل أسنان • علاج اللثة • تركيبات أسنان
+      </div>
+      <p>دكتور أسنان متخصص في علاج وتجميل أسنان البالغين، حشو وعلاج الجذور والأعصاب، علاج اللثة، تركيبات الأسنان، أسنان كبار السن، وأشعة الأسنان.</p>
+      <p>طبيب محترف ومتمكن من مهنته، يحرص على تقديم خدمة طبية متميزة بأحدث التقنيات والأجهزة الحديثة، مع الالتزام بأعلى معايير الجودة والتعقيم.</p>
+
+      <div class="about-tags">
+        <span class="about-tag"><i class="fa-solid fa-check"></i> أسنان بالغين</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> تجميل أسنان</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> حشو وعلاج الجذور</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> علاج الأعصاب</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> علاج اللثة</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> تركيبات أسنان</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> أسنان مسنين</span>
+        <span class="about-tag"><i class="fa-solid fa-check"></i> أشعة الأسنان</span>
+      </div>
+
+      <div class="about-features">
+        <div class="feature"><i class="fa-solid fa-certificate"></i><span>شهادات معتمدة</span></div>
+        <div class="feature"><i class="fa-solid fa-microscope"></i><span>أحدث التقنيات</span></div>
+        <div class="feature"><i class="fa-solid fa-hand-holding-heart"></i><span>رعاية شخصية</span></div>
+        <div class="feature"><i class="fa-solid fa-shield-halved"></i><span>تعقيم تام</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services reveal" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">خدماتنا</span>
+      <h2>خدمات طب الأسنان المتكاملة</h2>
+      <p>نقدم باقة شاملة من الخدمات الطبية بأعلى معايير الجودة</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+        <h3>طب أسنان عام</h3>
+        <p>فحص شامل وعلاج جميع مشاكل الأسنان للبالغين مع رعاية متكاملة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-teeth-open"></i></div>
+        <h3>حشو وعلاج العصب</h3>
+        <p>حشوات بيضاء بلون الأسنان وعلاج جذور الأعصاب باحترافية تامة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>تجميل الأسنان</h3>
+        <p>خدمات تجميلية متطورة لابتسامة مشرقة وجذابة بأحدث الأساليب.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+        <h3>علاج اللثة</h3>
+        <p>تشخيص وعلاج أمراض اللثة والحفاظ على صحة الفم بشكل كامل.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>تركيبات الأسنان</h3>
+        <p>تركيبات ثابتة ومتحركة عالية الجودة لاستعادة ابتسامتك بثقة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-x-ray"></i></div>
+        <h3>أشعة الأسنان</h3>
+        <p>تصوير أشعة دقيق وآمن لتشخيص متكامل ووضع خطة العلاج المناسبة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-user-clock"></i></div>
+        <h3>أسنان كبار السن</h3>
+        <p>عناية خاصة ومتميزة بأسنان كبار السن مع مراعاة احتياجاتهم الصحية.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-grip-lines"></i></div>
+        <h3>تنظيف الأسنان</h3>
+        <p>تنظيف عميق وإزالة الجير والتصبغات للحفاظ على صحة الأسنان واللثة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-face-smile"></i></div>
+        <h3>تبييض الأسنان</h3>
+        <p>تبييض آمن وفعّال للحصول على ابتسامة بيضاء ناصعة ومشرقة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery - صور العيادة -->
+<section class="gallery reveal" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">صور العيادة</span>
+      <h2>العيادة من الداخل</h2>
+      <p>تعرف على عيادتنا الحديثة والمجهزة بأحدث الأجهزة والتقنيات</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large">
+        <img src="6f3409f059fdce460579abf4ca2e1cba.jpg" alt="صورة الأشعة" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1631217314831-c6227db76b6e?w=600&q=80';">
+        <div class="gallery-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="6d8a855e2b6b4ed5114086e2a61ea0be.jpg" alt="كرسي العلاج الحديث" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1588776694971-91f58317b17d?w=600&q=80';">
+        <div class="gallery-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="6448a30e3c33d787e2fcd6464e2a3868.jpg" alt="كرسي العلاج" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1582142835499-3ee9aca60358?w=600&q=80';">
+        <div class="gallery-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="e2ba9f8b75fab85c7a61840cc4e31aba.jpg" alt="منطقة الاستقبال" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160550-112173f7f869?w=600&q=80';">
+        <div class="gallery-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="passport_322f551b-2f98-47fb-9e4e-3b627adaa7c3.jpg" alt="ديكور العيادة" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1587854692152-cbe660dbde0b?w=600&q=80';">
+        <div class="gallery-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials reveal" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">آراء المرضى</span>
+      <h2>ماذا يقول مرضانا</h2>
+      <p>تجارب حقيقية وآراء صادقة من مرضى الدكتور مجدي نصر</p>
+    </div>
+
+    <div class="rating-summary">
+      <div class="rating-big">
+        <strong>4.5</strong>
+        <div class="stars-big">★★★★★</div>
+      </div>
+      <div class="rating-text">
+        <h3>تقييم ممتاز من المرضى</h3>
+        <p>بناءً على تقييمات حقيقية من المرضى الذين زاروا العيادة وتلقوا الخدمات الطبية</p>
+      </div>
+      <div class="rating-stat">
+        <strong>+40</strong>
+        <span>مريض زاروا الدكتور</span>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"دكتور شاطر وعنده خبرة عالية، تعامله ممتاز واحترافي."</p>
+        <div class="testi-author">
+          <div class="author-avatar">م</div>
+          <div class="info"><strong>محمد ا.</strong><span>٤٠ سنة • مارس ٢٠٢٦</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"دكتور ممتاز، خدمة رائعة ومتميزة وأنصح بزيارته بشدة."</p>
+        <div class="testi-author">
+          <div class="author-avatar">أ</div>
+          <div class="info"><strong>أحمد خ.</strong><span>٢٥ سنة • يوليو ٢٠٢٥</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"ممتاز روعة، تجربة مميزة جداً مع الدكتور وفريق العمل."</p>
+        <div class="testi-author">
+          <div class="author-avatar">ر</div>
+          <div class="info"><strong>ريم م.</strong><span>أبريل ٢٠٢٥</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"الدكتور مجدي طبيب محترف ومتمكن من مهنته، وفقه الله وزاده من فضله."</p>
+        <div class="testi-author">
+          <div class="author-avatar">ص</div>
+          <div class="info"><strong>صلاح ا.</strong><span>٥٧ سنة • أكتوبر ٢٠٢٣</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★</div>
+        <p class="testi-text">"كان الدكتور جيد جداً، وفي الحقيقة لم أنتظر ثواني ودخلت عند الدكتور مباشرة."</p>
+        <div class="testi-author">
+          <div class="author-avatar">ر</div>
+          <div class="info"><strong>ربيعة ا.</strong><span>يونيو ٢٠٢٣</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <i class="fa-solid fa-quote-right quote-icon"></i>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"تجربة ممتازة وأنصح الجميع بزيارة الدكتور مجدي، خدمة طبية على أعلى مستوى."</p>
+        <div class="testi-author">
+          <div class="author-avatar">ه</div>
+          <div class="info"><strong>هند ع.</strong><span>عميلة موثقة</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Working Hours -->
+<section class="hours reveal" id="hours">
+  <div class="container">
+    <div class="hours-wrapper">
+      <div class="hours-intro">
+        <div class="hours-icon-big"><i class="fa-regular fa-clock"></i></div>
+        <span class="section-tag">جدول العمل</span>
+        <h2>أوقات عمل العيادة</h2>
+        <p>العيادة تستقبل المرضى يومياً من الساعة 4 عصراً حتى 9 مساءً. يمكنك الحجز مسبقاً لضمان الحصول على الموعد المناسب.</p>
+        <a href="https://wa.me/966557664577" class="btn-primary"><i class="fa-regular fa-calendar-plus"></i> احجز موعدك الآن</a>
+      </div>
+      <div class="hours-list">
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> السبت</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> الأحد</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> الاثنين</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> الثلاثاء</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> الأربعاء</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item">
+          <div class="day"><i class="fa-solid fa-calendar-day"></i> الخميس</div>
+          <span class="time">4:00 م- 9:00 م</span>
+        </div>
+        <div class="hours-item closed">
+          <div class="day"><i class="fa-solid fa-circle-xmark"></i> الجمعة</div>
+          <span class="time">إجازة أسبوعية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="location reveal" id="location">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">موقعنا</span>
+      <h2>زورونا في عيادتنا</h2>
+      <p>نحن في انتظارك في موقع مميز يسهل الوصول إليه</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-info">
+        <h3>عيادة د. مجدي نصر لطب الأسنان</h3>
+        <p>عيادة عصرية مجهزة بأحدث الأجهزة في موقع متميز يسهل الوصول إليه.</p>
+        <div class="loc-detail">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><strong>العنوان</strong><span>الرياض - المملكة العربية السعودية</span></div>
+        </div>
+        <div class="loc-detail">
+          <i class="fa-solid fa-clock"></i>
+          <div><strong>ساعات العمل</strong><span>السبت - الخميس: 4 عصراً - 9 مساءً</span></div>
+        </div>
+        <div class="loc-detail">
+          <i class="fa-solid fa-phone"></i>
+          <div><strong>اتصل بنا</strong><span>+966 55 766 4577</span></div>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="btn-directions">
+          <i class="fa-solid fa-diamond-turn-right"></i> الحصول على الاتجاهات
+        </a>
+      </div>
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.255!2d46.6753!3d24.7136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAnMzEuMSJF!5e0!3m2!1sar!2ssa!4v1234567890" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo"><i class="fa-solid fa-tooth"></i> د. مجدي نصر</div>
+        <p>دكتور أسنان متخصص في طب الأسنان العام، التجميل، تركيبات الأسنان، علاج الجذور والأعصاب، وعلاج اللثة.</p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#about">عن الدكتور</a></li>
+          <li><a href="#services">الخدمات</a></li>
+          <li><a href="#gallery">صور العيادة</a></li>
+          <li><a href="#testimonials">آراء المرضى</a></li>
+          <li><a href="#hours">أوقات العمل</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تخصصاتنا</h4>
+        <ul>
+          <li><a href="#">تجميل الأسنان</a></li>
+          <li><a href="#">تركيبات الأسنان</a></li>
+          <li><a href="#">علاج الجذور والأعصاب</a></li>
+          <li><a href="#">علاج اللثة</a></li>
+          <li><a href="#">أشعة الأسنان</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> الرياض - المملكة العربية السعودية</li>
+          <li><i class="fa-solid fa-phone"></i> +966 55 766 4577</li>
+          <li><i class="fa-brands fa-whatsapp"></i> +966 55 766 4577</li>
+          <li><i class="fa-solid fa-clock"></i> السبت - الخميس: 4:00 م - 9:00 م</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026يع الحقوق محفوظة - <a href="#">د. مجدي نصر لطب الأسنان</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/966557664577" class="whatsapp-float" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Success Message -->
+<div class="success-message" id="successMessage">
+  <i class="fa-solid fa-check-circle"></i> تم الحجز بنجاح! ✅
+</div>
+
+<!-- QR Reader Modal -->
+<div class="reader-modal" id="readerModal">
+  <div class="reader-content">
+    <div class="reader-header">📱 قارئ الحجوزات</div>
+    <div id="qr-reader" style="width:100%;"></div>
+    <div class="reader-actions">
+      <button class="reader-btn reader-btn-close" onclick="closeReaderModal()">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<!-- AI Chat Assistant -->
+<div class="chat-widget">
+  <button class="chat-toggle" id="chatToggle" title="فتح المساعد الذكي">
+    <i class="fa-solid fa-comments"></i>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div>
+        <h3><i class="fa-solid fa-robot"></i> مساعد ذكي</h3>
+        <small>نحن هنا للمساعدة 24/7</small>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">
+        <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+        <div class="message-text">مرحباً بك! 👋 أنا مساعد ذكي لعيادة د. مجدي نصر. كيف يمكنني مساعدتك اليوم؟</div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="اكتب سؤالك...">
+      <button class="chat-send" id="chatSend">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); });
+},{threshold:0.15});
+reveals.forEach(r=>observer.observe(r));
+
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('show'));
+});
+
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('.navbar');
+  nav.style.boxShadow = window.scrollY>50 ? '0 5px 30px rgba(0,0,0,0.08)' : '0 2px 20px rgba(0,0,0,0.05)';
+});
+
+// AI Chat Assistant
+const chatToggle = document.getElementById('chatToggle');
+const chatClose = document.getElementById('chatClose');
+const chatWindow = document.getElementById('chatWindow');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+
+const responses = {
+  'hello|مرحبا|السلام|صباح':'مرحباً بك! 👋 هل تريد معرفة المزيد عن خدماتنا أم تريد حجز موعد؟',
+  'services|خدمات':'نقدم خدمات متعددة:\n✓ طب أسنان عام\n✓ تجميل أسنان\n✓ حشو وعلاج العصب\n✓ تركيبات أسنان\n✓ علاج اللثة\n✓ أشعة أسنان\n✓ تبييض أسنان',
+  'hours|أوقات|وقت|ساعات':'⏰ أوقات العمل:\nالسبت - الخميس: 4:00 ع - 9:00 م\nالجمعة: إجازة أسبوعية',
+  'appointment|حجز|موعد|مواعيد':'📅 المواعيد المتاحة:\n• نفس اليوم: متاح حسب التوفر\n• الأسبوع القادم: حجز متاح\n• يمكنك الحجز عبر:\n📲 واتساب: +966 55 766 4577\n☎️ اتصال: +966 55 766 4577',
+  'doctor|دكتور|طبيب':'د. مجدي نصر - متخصص في طب الأسنان\n✓ 5+ سنوات خبرة\n✓ أحدث التقنيات\n✓ رعاية متكاملة\n✓ تقييم 4.5/5 من المرضى',
+  'price|سعر|تكلفة|أسعار|كشف':'💰 الأسعار بالريال السعودي:\n\n🔹 الفحص الأولي: 100 ر.س\n🔹 التنظيف: 150 ر.س\n🔹 الحشو البسيط: 200 ر.س\n🔹 الحشو المركب: 300 ر.س\n🔹 علاج الجذور: 500 ر.س\n🔹 التبييض: 400 ر.س\n🔹 الأشعة: 50 ر.س\n🔹 الاستشارة: 75 ر.س\n\nللمزيد من التفاصيل: +966 55 766 4577',
+  'consultation|استشارة':'🏥 الاستشارة الأولية: 75 ريال سعودي\n\nتشمل:\n✓ فحص شامل\n✓ تقييم الحالة\n✓ خطة العلاج\n\nللحجز: +966 55 766 4577',
+  'cleaning|تنظيف':'🪥 تنظيف الأسنان: 150 ريال سعودي\n\nيتضمن:\n✓ إزالة الجير\n✓ تنظيف عميق\n✓ ملمع أسنان\n\nللحجز: +966 55 766 4577',
+  'filling|حشو':'🔧 الحشوات:\n• حشو بسيط: 200 ر.س\n• حشو مركب: 300 ر.س\n\nحشوات بيضاء بلون الأسنان\nجودة عالية وتدوم طويلاً\n\nللحجز: +966 55 766 4577',
+  'location|موقع|عنوان':'📍 الموقع: الرياض - المملكة العربية السعودية\nالموقع سهل الوصول إليه\nسيارات انتظار متوفرة',
+  'thank|شكرا|شكراً|thanks':'😊 تشرفنا زيارتك! إن كان لديك أي استفسار آخر، نحن هنا للمساعدة.',
+  'bye|وداعا|مع السلامة|goodbye':'👋 شكراً على تواصلك! نتمنى لك أسناناً صحية وابتسامة مشرقة!',
+};
+
+function findResponse(userMessage) {
+  userMessage = userMessage.toLowerCase().trim();
+  for (let key in responses) {
+    const keywords = key.split('|');
+    if (keywords.some(k => userMessage.includes(k))) {
+      return responses[key];
+    }
+  }
+  return 'شكراً على سؤالك! 😊 للمزيد من المعلومات المفصلة، يرجى التواصل معنا على +966 55 766 4577 أو راسلنا على واتساب.';
+}
+
+function addMessage(text, isUser) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+  
+  if (!isUser) {
+    msgDiv.innerHTML = `<div class="avatar"><i class="fa-solid fa-robot"></i></div>`;
+  }
+  
+  const textDiv = document.createElement('div');
+  textDiv.className = 'message-text';
+  textDiv.textContent = text;
+  msgDiv.appendChild(textDiv);
+  
+  chatMessages.appendChild(msgDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatToggle.addEventListener('click', () => {
+  chatWindow.classList.toggle('active');
+});
+
+chatClose.addEventListener('click', () => {
+  chatWindow.classList.remove('active');
+});
+
+chatSend.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  if (message) {
+    addMessage(message, true);
+    chatInput.value = '';
+    
+    setTimeout(() => {
+      const response = findResponse(message);
+      addMessage(response, false);
+    }, 500);
+  }
+});
+
+chatInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    chatSend.click();
+  }
+});
+
+// Booking System
+const bookingBtn = document.querySelector('a[href="https://wa.me/966557664577"][class*="btn"]');
+const bookingModal = document.getElementById('bookingModal');
+const bookingForm = document.getElementById('bookingForm');
+const qrModal = document.getElementById('qrModal');
+const readerModal = document.getElementById('readerModal');
+
+// تعيين الحد الأدنى للتاريخ إلى اليوم
+document.getElementById('appointmentDate').min = new Date().toISOString().split('T')[0];
+
+// فتح نافذة الحجز
+document.querySelectorAll('.btn-primary, .btn-nav').forEach(btn => {
+  if (btn.textContent.includes('احجز')) {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openBookingModal();
+    });
+  }
+});
+
+function openBookingModal() {
+  bookingModal.classList.add('active');
+}
+
+function closeBookingModal() {
+  bookingModal.classList.remove('active');
+  bookingForm.reset();
+}
+
+function closeQRModal() {
+  qrModal.classList.remove('active');
+}
+
+function closeReaderModal() {
+  readerModal.classList.remove('active');
+  html5QrcodeScanner = null;
+}
+
+// حفظ الحجز
+bookingForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const booking = {
+    id: 'APT-' + Date.now(),
+    name: document.getElementById('patientName').value,
+    phone: document.getElementById('patientPhone').value,
+    email: document.getElementById('patientEmail').value,
+    date: document.getElementById('appointmentDate').value,
+    time: document.getElementById('appointmentTime').value,
+    service: document.getElementById('serviceType').value,
+    bookingDate: new Date().toLocaleString('ar-SA'),
+    status: 'confirmed'
+  };
+  
+  // حفظ في localStorage
+  let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+  appointments.push(booking);
+  localStorage.setItem('appointments', JSON.stringify(appointments));
+  
+  closeBookingModal();
+  showQRCode(booking);
+  showSuccessMessage();
+});
+
+function showQRCode(booking) {
+  const qrData = JSON.stringify(booking);
+  document.getElementById('qrCodeContainer').innerHTML = '';
+  
+  new QRCode(document.getElementById('qrCodeContainer'), {
+    text: qrData,
+    width: 280,
+    height: 280,
+    colorDark: '#0AA1B6',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+  
+  // عرض تفاصيل الحجز
+  const details = `
+    <div class="detail-item"><strong>رقم الحجز:</strong><span>${booking.id}</span></div>
+    <div class="detail-item"><strong>الاسم:</strong><span>${booking.name}</span></div>
+    <div class="detail-item"><strong>التاريخ:</strong><span>${new Date(booking.date).toLocaleDateString('ar-SA')}</span></div>
+    <div class="detail-item"><strong>الوقت:</strong><span>${booking.time}</span></div>
+    <div class="detail-item"><strong>الخدمة:</strong><span>${booking.service}</span></div>
+  `;
+  document.getElementById('bookingDetailsList').innerHTML = details;
+  
+  qrModal.classList.add('active');
+  window.currentBooking = booking;
+}
+
+function printQRCode() {
+  const printWindow = window.open('', '', 'width=600,height=700');
+  const qrElement = document.getElementById('qrCodeContainer').innerHTML;
+  const booking = window.currentBooking;
+  
+  printWindow.document.write(`
+    <html dir="rtl">
+    <head>
+      <title>بطاقة الحجز</title>
+      <style>
+        body { font-family: Arial; text-align: center; padding: 40px; background: #f5f5f5; }
+        .header { color: #0AA1B6; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        .qr { margin: 30px 0; background: white; padding: 20px; border-radius: 10px; }
+        .details { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; text-align: right; }
+        .detail { margin: 10px 0; }
+        .label { font-weight: bold; }
+      </style>
+    </head>
+    <body>
+      <div class="header">✅ بطاقة الحجز عيادة د. مجدي نصر</div>
+      <div class="qr">${qrElement}</div>
+      <div class="details">
+        <div class="detail"><span class="label">رقم الحجز:</span> ${booking.id}</div>
+        <div class="detail"><span class="label">الاسم:</span> ${booking.name}</div>
+        <div class="detail"><span class="label">التاريخ:</span> ${new Date(booking.date).toLocaleDateString('ar-SA')}</div>
+        <div class="detail"><span class="label">الوقت:</span> ${booking.time}</div>
+        <div class="detail"><span class="label">الخدمة:</span> ${booking.service}</div>
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+}
+
+function showSuccessMessage() {
+  const msg = document.getElementById('successMessage');
+  msg.classList.add('show');
+  setTimeout(() => msg.classList.remove('show'), 3000);
+}
+
+
+window.printQRCode = printQRCode;
+window.closeBookingModal = closeBookingModal;
+window.closeQRModal = closeQRModal;
+window.openBookingModal = openBookingModal;
+</script>
+
+</body>
+</html>
